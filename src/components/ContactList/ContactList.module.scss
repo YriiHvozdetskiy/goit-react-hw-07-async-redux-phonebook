@@ -1,0 +1,25 @@
+.list {
+  width: 380px;
+}
+
+.item:not(:nth-last-child(1)) {
+  margin-bottom: 10px;
+}
+.button {
+  margin-left: 10px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: solid 1px grey;
+  background-color: transparent;
+  outline: none;
+  transition: background-color color 250ms ease 0s;
+
+  &:hover {
+    background-color: green;
+    color: white;
+  }
+  &:focus {
+    background-color: blue;
+    color: white;
+  }
+}

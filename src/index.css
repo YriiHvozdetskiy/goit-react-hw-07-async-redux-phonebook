@@ -1,0 +1,16 @@
+@import-normalize;
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* *,
+::after,
+::before {
+  box-sizing: border-box;
+} */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
