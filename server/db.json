@@ -1,14 +1,3 @@
 {
-  "contacts": [
-    {
-      "id": "pYdfjn86U4z1BfQ1LDeJn",
-      "name": "dima",
-      "number": "3242342"
-    },
-    {
-      "id": "Ex1Jb2Hx70gZHtSSmawnp",
-      "name": "vasa",
-      "number": "232334"
-    }
-  ]
+  "contacts": []
 }

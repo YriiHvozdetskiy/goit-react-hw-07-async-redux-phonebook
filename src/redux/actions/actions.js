@@ -16,3 +16,11 @@ export const addContact = createAsyncThunk(
     return result.data;
   },
 );
+
+export const deleteContact = createAsyncThunk(
+  'contacts/deleteContact',
+  async id => {
+    await axios.delete(`http://localhost:7777/contacts/${id}`);
+    return id;
+  },
+);
