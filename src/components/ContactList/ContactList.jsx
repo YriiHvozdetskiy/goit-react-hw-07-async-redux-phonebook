@@ -5,22 +5,18 @@ import { deleteContact, fetchContactsList } from '../../redux/actions/actions';
 import { useEffect } from 'react';
 
 function ContactList() {
-  const { items } = useSelector(state => state.reducer);
   const dispatch = useDispatch();
+  const items = useSelector(state => {
+    const { items, filter } = state.reducer;
+    const normalizedFilter = filter.toLowerCase();
+    return items.filter(({ name }) =>
+      name.toLowerCase().includes(normalizedFilter),
+    );
+  });
 
   useEffect(() => {
     dispatch(fetchContactsList());
   }, [dispatch]);
-
-  // const items = useSelector(state => {
-  //в useSelector приходе глобальний  state з store
-  // const { items, filter } = state.contacts.contacts; // деструк з raducera поля обєкта
-
-  // const normalizedFilter = filter.toLowerCase();
-  // return items.filter(({ name }) =>
-  // name.toLowerCase().includes(normalizedFilter),
-  // );
-  // });
 
   const removeContact = (id, name) => {
     dispatch(deleteContact(id));

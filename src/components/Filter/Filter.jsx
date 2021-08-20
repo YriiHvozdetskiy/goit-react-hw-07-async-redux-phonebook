@@ -1,13 +1,14 @@
-import { useDispatch } from 'react-redux';
-// import { filterContacts } from '../../redux/reducers/reducer';
+import { useDispatch, useSelector } from 'react-redux';
 import s from './Filter.module.scss';
+import { filterContacts } from '../../redux/reducers/reducer';
 
 function Filter() {
   const dispatch = useDispatch();
+  const { filter } = useSelector(state => state.reducer);
 
   const changeFilter = e => {
     const searchValue = e.target.value; // value яке вели для пошуку контакта з input
-    // dispatch(filterContacts(searchValue)); // відправляєм в reducer
+    dispatch(filterContacts(searchValue)); // відправляєм в reducer
   };
 
   return (
