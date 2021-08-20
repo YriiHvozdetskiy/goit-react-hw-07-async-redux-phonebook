@@ -1,19 +1,14 @@
 {
   "contacts": [
     {
-      "name": "Jack",
-      "number": 1234,
-      "id": 1
-    },
-    {
-      "name": "Poly",
-      "number": 7777,
-      "id": 2
-    },
-    {
-      "id": "iOrtPs0-kvVaIEAUyw5_S",
+      "id": "pYdfjn86U4z1BfQ1LDeJn",
       "name": "dima",
-      "number": "32434345"
+      "number": "3242342"
+    },
+    {
+      "id": "Ex1Jb2Hx70gZHtSSmawnp",
+      "name": "vasa",
+      "number": "232334"
     }
   ]
 }

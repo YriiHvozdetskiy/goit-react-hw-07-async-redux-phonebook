@@ -1,6 +1,14 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+export const fetchContactsList = createAsyncThunk(
+  'contacts/fetchContactsList',
+  async () => {
+    const result = await axios.get('http://localhost:7777/contacts');
+    return result.data;
+  },
+);
+
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async contact => {

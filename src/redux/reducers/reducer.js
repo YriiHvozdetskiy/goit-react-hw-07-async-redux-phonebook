@@ -1,12 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
-//щоб встановити json-server переходем в папку server через cd і пишем npm init ,встановлюєм json-server, в
+import { addContact, fetchContactsList } from '../actions/actions';
 
 export const contactsReducer = createSlice({
   name: 'contacts',
   initialState: {
-    contacts: [],
+    items: [],
     status: null,
     error: null,
   },
-  extraReducers: {},
+  extraReducers: {
+    [fetchContactsList.fulfilled]: (state, action) => {
+      state.items = action.payload;
+      state.status = null;
+      state.error = null;
+    },
+    [addContact.fulfilled]: (state, action) => {
+      state.items = [action.payload, ...state.items];
+      state.status = null;
+      state.error = null;
+    },
+  },
 });
