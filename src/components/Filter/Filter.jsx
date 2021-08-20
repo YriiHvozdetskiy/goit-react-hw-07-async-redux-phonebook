@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { filterContacts } from '../../redux/reducers/reducer';
+// import { filterContacts } from '../../redux/reducers/reducer';
 import s from './Filter.module.scss';
 
 function Filter() {
@@ -7,7 +7,7 @@ function Filter() {
 
   const changeFilter = e => {
     const searchValue = e.target.value; // value яке вели для пошуку контакта з input
-    dispatch(filterContacts(searchValue)); // відправляєм в reducer
+    // dispatch(filterContacts(searchValue)); // відправляєм в reducer
   };
 
   return (

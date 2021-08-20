@@ -3,14 +3,14 @@ import { DebounceInput } from 'react-debounce-input';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/reducers/reducer';
 import s from './ContactForm.module.scss';
+import { addContact } from '../../redux/actions/actions';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const { items } = useSelector(state => state.contacts.contacts);
+  // const { items } = useSelector(state => state.contacts.contacts);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -30,12 +30,12 @@ export const ContactForm = () => {
   };
 
   const handleCoincidence = currentName => {
-    if (!items) return;
+    // if (!items) return;
     // якщо імя вже є в контактах повідомляєм і не даєм дод імя поки користувач не зміне його
-    if (items.find(({ name }) => name.toLowerCase() === currentName)) {
-      toast.error(`${name} is already in contacts`);
-      return true;
-    }
+    // if (items.find(({ name }) => name.toLowerCase() === currentName)) {
+    //   toast.error(`${name} is already in contacts`);
+    //   return true;
+    // }
   };
 
   const handleSubmit = e => {
