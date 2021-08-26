@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { createAction } from '@reduxjs/toolkit';
 
 export const fetchContactsList = createAsyncThunk(
   'contacts/fetchContactsList',
@@ -25,7 +24,3 @@ export const deleteContact = createAsyncThunk(
     return id;
   },
 );
-
-// export const filterContacts = createAction({'FILTER_CONTACTS', (searchValue) => {
-//   return { payload: searchValue }}
-// })

@@ -17,10 +17,6 @@ export const contactsReducer = createSlice({
     filterContacts: (state, action) => {
       state.filter = action.payload;
     },
-    // filterContacts:(state, action)=> {
-    //   const normalizedFilter = action.payload.toLowerCase();
-    //   state.items = state.items.filter(({ name }) => name.toLowerCase().includes(normalizedFilter));
-    // },
   },
   extraReducers: {
     [fetchContactsList.fulfilled]: (state, action) => {
