@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 import s from '././ContactList.module.scss';
-import { deleteContact, fetchContactsList } from '../../redux/actions/actions';
+import { deleteContact, fetchContactsList } from '../../redux/actions';
 import { useEffect } from 'react';
 
 function ContactList() {
