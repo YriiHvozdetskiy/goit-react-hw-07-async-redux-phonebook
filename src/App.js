@@ -4,17 +4,18 @@ import Filter from 'components/Filter/Filter';
 import Title from './components/Title/Title';
 import ContactList from 'components/ContactList/ContactList';
 import { ContactForm } from './components/ContactForm/ContactForm';
+import { getContacts } from './redux/selectors';
 
 export function App() {
-  const { items } = useSelector(state => state.reducer);
+  const contacts = useSelector(getContacts);
 
   return (
     <>
       <Title>Phonebook</Title>
       <ContactForm />
       {/*рендерем Filter,Title тільки тоді коли щось є в state із reducer*/}
-      {items.length !== 0 && <Title>Contacts</Title>}
-      {items.length !== 0 && <Filter />}
+      {contacts.length !== 0 && <Title>Contacts</Title>}
+      {contacts.length !== 0 && <Filter />}
       <ContactList />
       <Toaster
         toastOptions={{

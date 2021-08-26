@@ -3,16 +3,11 @@ import toast from 'react-hot-toast';
 import s from '././ContactList.module.scss';
 import { deleteContact, fetchContactsList } from '../../redux/actions';
 import { useEffect } from 'react';
+import { getFilteredContacts } from '../../redux/selectors';
 
-function ContactList() {
+export default function ContactList() {
   const dispatch = useDispatch();
-  const items = useSelector(state => {
-    const { items, filter } = state.reducer;
-    const normalizedFilter = filter.toLowerCase();
-    return items.filter(({ name }) =>
-      name.toLowerCase().includes(normalizedFilter),
-    );
-  });
+  const filteredContacts = useSelector(getFilteredContacts);
 
   useEffect(() => {
     dispatch(fetchContactsList());
@@ -20,14 +15,14 @@ function ContactList() {
 
   const removeContact = (id, name) => {
     dispatch(deleteContact(id));
-    toast.success(`deleted ${name}`);
+    toast.success(`${name} removed `);
   };
 
   return (
-    // рендерем контакти з масиву items || рендерем результати пошуку
+    // рендерем контакти з масиву filteredContacts || рендерем результати пошуку
     <ul className={s.list}>
-      {items &&
-        items.map(({ id, name, number }) => {
+      {filteredContacts &&
+        filteredContacts.map(({ id, name, number }) => {
           return (
             <li className={s.item} key={id}>
               <span>{name}</span>: <span>{number}</span>
@@ -44,5 +39,3 @@ function ContactList() {
     </ul>
   );
 }
-
-export default ContactList;

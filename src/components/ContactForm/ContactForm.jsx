@@ -5,12 +5,13 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './ContactForm.module.scss';
 import { addContact } from '../../redux/actions';
+import { getContacts } from '../../redux/selectors';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
-  const { items } = useSelector(state => state.reducer);
+  const contacts = useSelector(getContacts);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -30,9 +31,9 @@ export const ContactForm = () => {
   };
 
   const handleCoincidence = currentName => {
-    if (!items) return;
+    if (!contacts) return;
     // якщо імя вже є в контактах повідомляєм і не даєм дод імя поки користувач не зміне його
-    if (items.find(({ name }) => name.toLowerCase() === currentName)) {
+    if (contacts.find(({ name }) => name.toLowerCase() === currentName)) {
       toast.error(`${name} is already in contacts`);
       return true;
     }
@@ -48,7 +49,7 @@ export const ContactForm = () => {
     // відправляєм створений контакт через actions методом dispatch в reducer
     dispatch(addContact(contact));
 
-    toast.success(`${name} added a contact`);
+    toast.success(`${name} added to contact`);
 
     // обнуляєм поля input після создання контакта
     setName('');
