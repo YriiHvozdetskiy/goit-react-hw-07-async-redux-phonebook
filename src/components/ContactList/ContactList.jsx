@@ -20,7 +20,7 @@ function ContactList() {
 
   const removeContact = (id, name) => {
     dispatch(deleteContact(id));
-    toast.success(`deleted contact ${name}`);
+    toast.success(`deleted ${name}`);
   };
 
   return (
