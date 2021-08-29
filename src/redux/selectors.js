@@ -1,5 +1,6 @@
 export const getContacts = state => state.reducer.items;
 export const getFilter = state => state.reducer.filter;
+export const getError = state => state.reducer.error;
 
 //композитний / складний селектор selector
 export const getFilteredContacts = state => {
