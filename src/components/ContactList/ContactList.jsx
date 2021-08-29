@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import toast from 'react-hot-toast';
 import s from '././ContactList.module.scss';
 import { deleteContact, fetchContactsList } from '../../redux/actions';
 import { useEffect } from 'react';
@@ -13,9 +12,8 @@ export default function ContactList() {
     dispatch(fetchContactsList());
   }, [dispatch]);
 
-  const removeContact = (id, name) => {
+  const removeContact = id => {
     dispatch(deleteContact(id));
-    toast.success(`${name} removed `);
   };
 
   return (
@@ -29,7 +27,7 @@ export default function ContactList() {
               <button
                 className={s.button}
                 type="button"
-                onClick={() => removeContact(id, name)}
+                onClick={() => removeContact(id)}
               >
                 Delete
               </button>

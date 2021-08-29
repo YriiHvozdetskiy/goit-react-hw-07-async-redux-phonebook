@@ -46,10 +46,7 @@ export const ContactForm = () => {
 
     // створюєм обєкт з даних які прийшли з форми + дод id
     const contact = { id: nanoid(), name, number };
-    // відправляєм створений контакт через actions методом dispatch в reducer
     dispatch(addContact(contact));
-
-    toast.success(`${name} added to contact`);
 
     // обнуляєм поля input після создання контакта
     setName('');
