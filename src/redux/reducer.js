@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { addContact, deleteContact, fetchContactsList } from './actions';
-
+// TODO дод загрузку
 export const contactsReducer = createSlice({
   name: 'contacts',
   initialState: {
